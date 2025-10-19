@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="Ruína das Slimes"
+run/main_scene="uid://cbvnfp7ifv7se"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
