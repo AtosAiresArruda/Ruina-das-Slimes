@@ -1,16 +1,27 @@
 extends CharacterBody2D
 
+#Status Base
+const SPEED = 200.0
+var life = 100
 
-const SPEED = 300.0
+#Atributos
+var mov_effect = 1 #Porcentagem de bonus ou debuff de velocidade
 
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+	# Left Right Down Up são entradas mapeadas ao teclado
+	#Direction é um vetor de duas coordenadas
+	#Get_vector é uma função que retorna um Vector2 utilizando OU exclusivo
+	var direction := Input.get_vector("Left", "Right", "Up", "Down").normalized()
+	if life > 0:
+		velocity = direction * SPEED * mov_effect #MOVIMENTAÇÃO
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity = Vector2(0,0)
+	
+
+	
+
 
 	move_and_slide()
