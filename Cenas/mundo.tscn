@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbvnfp7ifv7se"]
+[gd_scene load_steps=5 format=3 uid="uid://cbvnfp7ifv7se"]
 
 [ext_resource type="PackedScene" uid="uid://b2aldla6h65yh" path="res://Cenas/Jogador.tscn" id="1_oji8i"]
+[ext_resource type="Texture2D" uid="uid://3lgv6r471uis" path="res://assets/groundForestMockup.jpg" id="1_qboq2"]
 [ext_resource type="Script" uid="uid://c3clylt4xp7q" path="res://Scripts/EnemySpawner.gd" id="3_qboq2"]
 [ext_resource type="PackedScene" uid="uid://bfqb6qfs02n08" path="res://Cenas/Enemy.tscn" id="4_qvmr6"]
 
 [node name="Mundo" type="Node2D"]
+
+[node name="GroundForestMockup2" type="Sprite2D" parent="."]
+position = Vector2(669, 333)
+scale = Vector2(4, 4)
+texture = ExtResource("1_qboq2")
 
 [node name="Player" parent="." instance=ExtResource("1_oji8i")]
 position = Vector2(640, 360)
