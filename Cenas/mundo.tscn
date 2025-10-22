@@ -5,4 +5,4 @@
 [node name="Mundo" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_oji8i")]
-position = Vector2(211, 72)
+position = Vector2(89, 40)
