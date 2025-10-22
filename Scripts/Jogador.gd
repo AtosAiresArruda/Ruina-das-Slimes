@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 #Status Base
-const SPEED = 200.0
+@export var SPEED:float = 200.0
 var life = 100
 
 #Atributos

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfqb6qfs02n08"]
+
+[ext_resource type="Script" uid="uid://b5maxiiqswm6r" path="res://Scripts/EnemyBehavior.gd" id="1_i8v1b"]
+[ext_resource type="Texture2D" uid="uid://braxoin6p152e" path="res://assets/spr_patoCracudo-Sheet.png" id="2_tp8xb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp8xb"]
+size = Vector2(51, 17)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_i8v1b")
+speed = 75.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tp8xb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.5, 8.5)
+shape = SubResource("RectangleShape2D_tp8xb")
