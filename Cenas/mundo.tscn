@@ -1,8 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbvnfp7ifv7se"]
+[gd_scene load_steps=5 format=3 uid="uid://cbvnfp7ifv7se"]
 
 [ext_resource type="PackedScene" uid="uid://b2aldla6h65yh" path="res://Cenas/Jogador.tscn" id="1_oji8i"]
+[ext_resource type="Texture2D" uid="uid://3lgv6r471uis" path="res://assets/groundForestMockup.jpg" id="1_qboq2"]
+[ext_resource type="Script" uid="uid://c3clylt4xp7q" path="res://Scripts/EnemySpawner.gd" id="3_qboq2"]
+[ext_resource type="PackedScene" uid="uid://bfqb6qfs02n08" path="res://Cenas/Enemy.tscn" id="4_qvmr6"]
 
 [node name="Mundo" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_oji8i")]
-position = Vector2(211, 72)
+[node name="GroundForestMockup2" type="Sprite2D" parent="."]
+position = Vector2(669, 333)
+scale = Vector2(4, 4)
+texture = ExtResource("1_qboq2")
+
+[node name="Player" parent="." instance=ExtResource("1_oji8i")]
+position = Vector2(640, 360)
+safe_margin = 0.2
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_enabled = false
+limit_left = 0
+limit_top = 0
+limit_right = 1270
+limit_bottom = 720
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(640, 360)
+script = ExtResource("3_qboq2")
+enemy_scene = ExtResource("4_qvmr6")
+interval = 1.0
