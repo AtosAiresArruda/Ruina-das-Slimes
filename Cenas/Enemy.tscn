@@ -9,6 +9,7 @@ size = Vector2(51, 17)
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_i8v1b")
 speed = 75.0
+push_force = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_tp8xb")

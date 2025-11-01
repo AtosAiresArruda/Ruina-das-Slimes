@@ -6,7 +6,7 @@ extends Node2D
 @onready var camera: Camera2D = player.get_node("Camera2D")
 
 func _ready():
-	timer()
+	call_deferred("timer")
 
 func spawn_enemy() -> void:
 	if enemy_scene == null:
@@ -37,8 +37,9 @@ func spawn_enemy() -> void:
 
 	enemy.global_position = position
 	enemy.player = player
-	get_parent().add_child(enemy)
+	get_parent().call_deferred("add_child", enemy)
 
 func timer():
 	spawn_enemy()
-	get_tree().create_timer(interval).timeout.connect(timer)
+	await get_tree().create_timer(interval).timeout
+	timer()
