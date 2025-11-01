@@ -14,7 +14,9 @@ func spawn_enemy() -> void:
 
 	var enemy = enemy_scene.instantiate()
 	var side = randi() % 4
-	var position = Vector2.ZERO #inializa position
+
+
+	#var position = Vector2.ZERO #inializa position
 
 	# get camera bounds
 	var viewport_rect = get_viewport_rect()
