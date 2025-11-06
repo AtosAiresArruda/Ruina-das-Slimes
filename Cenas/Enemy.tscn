@@ -1,18 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfqb6qfs02n08"]
+[gd_scene load_steps=7 format=3 uid="uid://bfqb6qfs02n08"]
 
 [ext_resource type="Script" uid="uid://b5maxiiqswm6r" path="res://Scripts/EnemyBehavior.gd" id="1_i8v1b"]
-[ext_resource type="Texture2D" uid="uid://braxoin6p152e" path="res://assets/spr_patoCracudo-Sheet.png" id="2_tp8xb"]
+[ext_resource type="Texture2D" uid="uid://0eekl8hul327" path="res://assets/spr_slime00.png" id="2_tp8xb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tp8xb"]
-size = Vector2(51, 17)
+size = Vector2(24, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tp8xb"]
+atlas = ExtResource("2_tp8xb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coe7t"]
+atlas = ExtResource("2_tp8xb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_coe7t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tp8xb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coe7t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_i8v1b")
 speed = 75.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_tp8xb")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4.5, 8.5)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_tp8xb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_coe7t")
+autoplay = "default"
