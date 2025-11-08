@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://fwhjsq5t7ta7"]
+[gd_scene load_steps=9 format=4 uid="uid://kk7a3m6jaqay"]
 
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="1_olu0j"]
-[ext_resource type="Texture2D" uid="uid://d0r28f8byqpgl" path="res://assets/spr_grama.png" id="2_olu0j"]
 [ext_resource type="Shader" uid="uid://dd3n3kuu74dpf" path="res://Shaders/teste_shader.gdshader" id="3_3231g"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_olu0j"]
+load_path = "res://.godot/imported/spr_grama.png-a196c118925862efa4b2db49473fb290.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vxy7c"]
-texture = ExtResource("2_olu0j")
+texture = SubResource("CompressedTexture2D_olu0j")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0

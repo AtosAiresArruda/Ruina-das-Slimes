@@ -45,8 +45,17 @@ func _physics_process(delta: float) -> void:
 
 	if state == ALIVE:
 		velocity = direction * SPEED * mov_effect #MOVIMENTAÇÃO
+		if velocity.length() > 0:
+			sprite.play("Running")
+			if velocity.x > 0:
+				sprite.flip_h = false
+			else:
+				sprite.flip_h = true
+		else:
+			sprite.play("idle")
 		move_and_slide()
 	else:
+		sprite.play("idle")
 		velocity = Vector2(0,0)
 		get_tree().change_scene_to_file("res://Cenas/MainMenu.tscn")
 		

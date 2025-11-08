@@ -1,55 +1,64 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2aldla6h65yh"]
+[gd_scene load_steps=9 format=3 uid="uid://b2aldla6h65yh"]
 
 [ext_resource type="Script" uid="uid://draupikafg6fn" path="res://Scripts/Jogador.gd" id="1_twm4h"]
-[ext_resource type="Texture2D" uid="uid://braxoin6p152e" path="res://assets/spr_patoCracudo-Sheet.png" id="2_4ee2j"]
+[ext_resource type="Texture2D" uid="uid://b3knkhe1815cs" path="res://assets/spr_personagemTeste-Sheet.png" id="2_4ee2j"]
+[ext_resource type="Texture2D" uid="uid://e6s0khjnup7x" path="res://assets/spr_personagemTeste.png" id="3_i8uuj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ee2j"]
-size = Vector2(28, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ee2j"]
-atlas = ExtResource("2_4ee2j")
-region = Rect2(0, 0, 32, 32)
+size = Vector2(12, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i8uuj"]
 atlas = ExtResource("2_4ee2j")
-region = Rect2(32, 0, 32, 32)
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l884e"]
+atlas = ExtResource("2_4ee2j")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i8uuj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4ee2j")
+"texture": SubResource("AtlasTexture_i8uuj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i8uuj")
+"texture": SubResource("AtlasTexture_l884e")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Running",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_i8uuj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8uuj"]
-size = Vector2(24, 22)
+size = Vector2(22, 30)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_twm4h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_4ee2j")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(0.84509724, 0.8398388, 0.83060575, 1)
-position = Vector2(-2.5, -15.000002)
-scale = Vector2(2.03125, 2.1875)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_i8uuj")
-autoplay = "default"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="PlayerArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
-position = Vector2(1, 1)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_i8uuj")
 
 [connection signal="body_entered" from="PlayerArea" to="." method="_on_player_area_body_entered"]
