@@ -39,7 +39,7 @@ func spawn_enemy() -> void:
 
 	enemy.global_position = position
 	enemy.player = player
-	get_parent().add_child(enemy)
+	get_parent().call_deferred("add_child",enemy)
 
 func timer():
 	spawn_enemy()

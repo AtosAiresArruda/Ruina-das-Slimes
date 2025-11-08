@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0eekl8hul327" path="res://assets/spr_slime00.png" id="2_tp8xb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tp8xb"]
-size = Vector2(24, 12)
+size = Vector2(26, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tp8xb"]
 atlas = ExtResource("2_tp8xb")
@@ -31,6 +31,8 @@ animations = [{
 [node name="Enemy" type="CharacterBody2D" groups=["enemys"]]
 script = ExtResource("1_i8v1b")
 speed = 75.0
+collision_distance = 20.0
+push_force = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
