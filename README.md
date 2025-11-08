@@ -37,3 +37,4 @@ Funcionalidades Mínimas Requeridas :<br>
 
 <img width="1082" height="262" alt="image" src="https://github.com/user-attachments/assets/1e8f988c-baa7-4ffa-8235-2cf3d4880851" />
 
+<img width="1091" height="373" alt="image" src="https://github.com/user-attachments/assets/d12ef767-ace4-4d20-a836-8b9bd3661ed4" />
