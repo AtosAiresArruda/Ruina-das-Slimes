@@ -3,6 +3,9 @@ extends  CharacterBody2D
 @export var speed: float = 100.0
 @export var collision_distance:float = 16.0
 @export var push_force: float = 0.2
+#VARIAVEL TESTE PARA REGRAS DE DANO
+@export var damage : float = 2.5
+
 
 var player: CharacterBody2D = null
 
@@ -28,3 +31,6 @@ func _overlapping_handler():
 		global_position+=push*(collision_distance - distance) * push_force
 		
 		
+
+func get_damage() -> float:
+	return damage
