@@ -30,3 +30,10 @@ Funcionalidades Mínimas Requeridas :<br>
 <b><p>Exemplo de Interação <code>Controlador -> Equipamento</code>:</p></b><br>
   - <b>[Equipamento]</b>-------------------> Comportamento Base (Circular, Ricochete, Linha Reta, Dano em Area); Quantidade Base de Projéteies ; Possíveis evoluções; Tempo de Recarga Base)<br>
   - <b>[Gerenciador de Equipamento]</b>-> Instanciação do Equipamento; Multiplicador de Projeiteis e Tempo de Rergarga(Baseado no Nível e Evolução); Controle de Inventário;
+---------------------------------------------------------------------
+<b><p>Casos de Uso Base [<code>Jogador</code> -> <code>Inimigo</code>]</p></b>
+
+<img width="595" height="193" alt="image" src="https://github.com/user-attachments/assets/4af711a5-ac1d-43cb-8dc4-3a40f8431084" />
+
+<img width="1082" height="262" alt="image" src="https://github.com/user-attachments/assets/1e8f988c-baa7-4ffa-8235-2cf3d4880851" />
+
