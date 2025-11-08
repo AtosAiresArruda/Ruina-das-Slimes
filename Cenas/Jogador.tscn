@@ -40,6 +40,7 @@ shape = SubResource("RectangleShape2D_4ee2j")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.84509724, 0.8398388, 0.83060575, 1)
 position = Vector2(-2.5, -15.000002)
 scale = Vector2(2.03125, 2.1875)
 sprite_frames = SubResource("SpriteFrames_i8uuj")

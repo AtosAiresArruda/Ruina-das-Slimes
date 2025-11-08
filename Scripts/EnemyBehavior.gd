@@ -1,36 +1,58 @@
-extends  CharacterBody2D
+extends CharacterBody2D
 
 @export var speed: float = 100.0
-@export var collision_distance:float = 16.0
+@export var max_life: float = 10.0
+@export var collision_distance: float = 16.0
 @export var push_force: float = 0.2
-#VARIAVEL TESTE PARA REGRAS DE DANO
-@export var damage : float = 2.5
+@export var damage: float = 2.5
+@onready var sprite = $AnimatedSprite2D
 
+var life: float
+var player: CharacterBody2D
 
-var player: CharacterBody2D = null
+func _ready():
+	life = max_life
 
 func _physics_process(delta: float):
 	if player == null:
 		return
-	var direction: Vector2 = (player.position - global_position).normalized()
-	velocity = direction * speed
-	move_and_slide()
 
-	_overlapping_handler()
-	
+	var direction: Vector2 = (player.global_position - global_position).normalized()
+	velocity = direction * speed
+
+	if player.life >= 1:
+		move_and_slide()
+		_overlapping_handler()
+
 func _overlapping_handler():
-	
 	if player == null:
 		return
-	var distance = (player.global_position - global_position).length()
+
+	var to_player = player.global_position - global_position
+	var distance = to_player.length()
+
 	if distance < collision_distance:
-		#direcao do empurrao = direcao do vetor invertido
-		var push =- (player.global_position - global_position).normalized()
-		#aplica o empurrao proporcional a distancia multiplicado ajuste de forca (esse ajuste é geralmente um valor entre 0 e 1 onde 1 é a distancia total)
-		#quanto maior o valor de push_force, mais rapido o inimigo sera empurrado para fora [pode causar impressao de teleporte]
-		global_position+=push*(collision_distance - distance) * push_force
-		
-		
+		var push_dir = -to_player.normalized()
+		var needed_push = (collision_distance - distance) + collision_distance * 2
+		global_position += push_dir * needed_push
+
+func flash_white(duration := 0.1):
+	
+	var tween = create_tween()
+	# Fade out (alpha 1 → 0)
+	tween.tween_property(sprite, "modulate:a", 0.0, duration * 0.5)
+	# Fade in (alpha 0 → 1)
+	tween.tween_property(sprite, "modulate:a", 1.0, duration * 0.5)
+	
+func take_damage(amount: float = 1.0) -> void:
+	life -= amount
+	flash_white()
+	if life <= 0:
+		die()
+
+
+func die() -> void:
+	queue_free()
 
 func get_damage() -> float:
 	return damage
