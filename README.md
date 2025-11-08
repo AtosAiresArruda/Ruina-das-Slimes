@@ -21,7 +21,7 @@ Funcionalidades Mínimas Requeridas :<br>
   * Armazenamento de progressão<br>
    -------------------------------------------------------------
 
-<b><p>Diagrama Refêrencia e Hierarquia de Nodes</p></b>
+<b><p>Diagrama Referência e Hierarquia de Nodes</p></b>
 <div styles="borer-radius:12px;"><img  width="1336" height="587" alt="image" src="https://github.com/user-attachments/assets/e304bdfe-3401-435f-8ef6-45bcf7fe7bd0" /></div>
 
 <p>[NOME DAS FUNÇÕES ASSOCIADAS ILUSTRATIVAS] Diagrama Guia para inserção das funcionalidades basicas do jogo a ser desenvolvido. Equanto a relação <b>Mundo -> Jogador</b> não apresenta alta complexidade é necessário cuidado com a lógica referente aos gerenciadores de estado de <code>Equipamentos</code> e <code>Inimigos</code></p>
