@@ -15,13 +15,16 @@ func _physics_process(delta: float) -> void:
 	#Direction é um vetor de duas coordenadas
 	#Get_vector é uma função que retorna um Vector2 utilizando OU exclusivo
 	var direction := Input.get_vector("Left", "Right", "Up", "Down").normalized()
+	print(life)
+
 	if life > 0:
 		velocity = direction * SPEED * mov_effect #MOVIMENTAÇÃO
 	else:
-		velocity = Vector2(0,0)
-	
-
-	
-
-
+		velocity = Vector2(0,0)	
 	move_and_slide()
+
+#Regras de Colisão para dano aqui!
+func _on_player_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemys"):
+		print("Dano")
+		life -=1

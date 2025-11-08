@@ -16,6 +16,7 @@ func _physics_process(delta: float):
 	_overlapping_handler()
 	
 func _overlapping_handler():
+	
 	if player == null:
 		return
 	var distance = (player.global_position - global_position).length()
@@ -25,3 +26,5 @@ func _overlapping_handler():
 		#aplica o empurrao proporcional a distancia multiplicado ajuste de forca (esse ajuste é geralmente um valor entre 0 e 1 onde 1 é a distancia total)
 		#quanto maior o valor de push_force, mais rapido o inimigo sera empurrado para fora [pode causar impressao de teleporte]
 		global_position+=push*(collision_distance - distance) * push_force
+		
+		
