@@ -1,4 +1,4 @@
-<h1>Ruina de Slimes</h1>
+<h1>Ruína de Slimes</h1>
 <h4>Documentação Preliminar</h4>
 <b><p>Modelo de Domínio Preliminar [Armazenamento de Dados para Progressão]</p></b>
 <img width="978" height="582" alt="image" src="https://github.com/user-attachments/assets/75e489f9-3362-4b26-b2c6-e60beae8cdba" />
