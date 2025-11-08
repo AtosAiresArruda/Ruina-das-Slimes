@@ -1,5 +1,5 @@
 shader_type canvas_item;
-// C
+// Código pego de : 
 uniform sampler2D overlay_tex: repeat_enable, filter_nearest;
 uniform float scale = 0.006944444; // calculated by 1/texture size e.g. 1/144
 varying vec2 world_position;
