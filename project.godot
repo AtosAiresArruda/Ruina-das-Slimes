@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Ruína das Slimes"
-run/main_scene="uid://cruyxlghd5u7y"
+run/main_scene="uid://cbvnfp7ifv7se"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,10 +20,6 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/mode=2
-
-[global_group]
-
-enemys="Grupo referente aos inimigos"
 
 [input]
 

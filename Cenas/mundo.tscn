@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbvnfp7ifv7se"]
+[gd_scene load_steps=5 format=3 uid="uid://cbvnfp7ifv7se"]
 
 [ext_resource type="PackedScene" uid="uid://b2aldla6h65yh" path="res://Cenas/Jogador.tscn" id="1_oji8i"]
 [ext_resource type="Texture2D" uid="uid://3lgv6r471uis" path="res://assets/groundForestMockup.jpg" id="1_qboq2"]
 [ext_resource type="Script" uid="uid://c3clylt4xp7q" path="res://Scripts/EnemySpawner.gd" id="3_qboq2"]
-[ext_resource type="PackedScene" uid="uid://3i6bbf3vvs06" path="res://Cenas/Weapons/Steel Ball.tscn" id="3_tn8co"]
 [ext_resource type="PackedScene" uid="uid://bfqb6qfs02n08" path="res://Cenas/Enemy.tscn" id="4_qvmr6"]
-[ext_resource type="Script" uid="uid://72cel6gjki0v" path="res://Cenas/WeaponManager.gd" id="5_qvmr6"]
 
 [node name="Mundo" type="Node2D"]
 
@@ -17,7 +15,6 @@ texture = ExtResource("1_qboq2")
 [node name="Player" parent="." instance=ExtResource("1_oji8i")]
 position = Vector2(640, 360)
 safe_margin = 0.2
-steel_ball = ExtResource("3_tn8co")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_enabled = false
@@ -27,9 +24,6 @@ limit_right = 1270
 limit_bottom = 720
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
-
-[node name="WeaponManager" type="Node" parent="Player"]
-script = ExtResource("5_qvmr6")
 
 [node name="Spawner" type="Node2D" parent="."]
 position = Vector2(640, 360)
