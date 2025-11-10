@@ -36,10 +36,6 @@ shader_parameter/scale = 0.006944444
 
 [node name="test_level" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(640, 360)
-script = ExtResource("1_olu0j")
-
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_offset = Vector2(1280, 720)
 repeat_size = Vector2(640, 368)
