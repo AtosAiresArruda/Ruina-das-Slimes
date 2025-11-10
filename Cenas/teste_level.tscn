@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://kk7a3m6jaqay"]
+[gd_scene load_steps=9 format=4 uid="uid://kk7a3m6jaqay"]
 
 [ext_resource type="Texture2D" uid="uid://d0r28f8byqpgl" path="res://assets/spr_grama.png" id="2_olu0j"]
 [ext_resource type="Shader" uid="uid://dd3n3kuu74dpf" path="res://Shaders/teste_shader.gdshader" id="3_3231g"]
@@ -36,9 +36,10 @@ shader_parameter/scale = 0.006944444
 
 [node name="test_level" type="Node2D"]
 
+
 [node name="Parallax2D" type="Parallax2D" parent="."]
-scroll_offset = Vector2(1280, 720)
-repeat_size = Vector2(640, 368)
+scroll_offset = Vector2(-291, 159)
+repeat_size = Vector2(640, 352)
 repeat_times = 3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Parallax2D"]
@@ -48,5 +49,7 @@ occlusion_enabled = false
 
 [node name="ColorRect" type="ColorRect" parent="Parallax2D"]
 material = SubResource("ShaderMaterial_3mc3v")
-offset_right = 640.0
-offset_bottom = 368.0
+offset_left = 297.0
+offset_top = 191.0
+offset_right = 937.0
+offset_bottom = 543.0
