@@ -40,6 +40,6 @@ position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_tp8xb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
+z_index = 1
 sprite_frames = SubResource("SpriteFrames_coe7t")
 autoplay = "default"

@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://ck7t6bl5i5fip"]
 
-[ext_resource type="Script" path="res://Cenas/Weapons/steel_ball.gd" id="1_lhqvw"]
-[ext_resource type="Texture2D" path="res://assets/ChatGPT Image Nov 8, 2025, 03_45_57 AM.png" id="2_bx0f0"]
+[ext_resource type="Script" uid="uid://cphyf50rxjvue" path="res://Cenas/Weapons/steel_ball.gd" id="1_lhqvw"]
+[ext_resource type="Texture2D" uid="uid://cikvxtl8ks05t" path="res://assets/ChatGPT Image Nov 8, 2025, 03_45_57 AM.png" id="2_bx0f0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dd7ax"]
 radius = 14.0
 
 [node name="SteelBall" type="Area2D"]
+z_index = 2
 script = ExtResource("1_lhqvw")
 rotation_speed = 3.0
 damage = 10.0

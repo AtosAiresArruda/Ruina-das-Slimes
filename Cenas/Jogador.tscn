@@ -31,9 +31,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_i8uuj")
-}, {
-"duration": 1.0,
-"texture": null
 }],
 "loop": true,
 "name": &"idle",
@@ -53,9 +50,9 @@ disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(0.84509724, 0.8398388, 0.83060575, 1)
-scale = Vector2(2, 2)
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_i8uuj")
-animation = &"idle"
+animation = &"Running"
 autoplay = "idle"
 
 [node name="PlayerArea" type="Area2D" parent="."]

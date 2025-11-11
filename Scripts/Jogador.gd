@@ -12,7 +12,7 @@ enum {
 }
 
 #Status Base
-@export var SPEED:float = 200.0
+@export var SPEED:float = 125.0
 @export var life : float = 100
 @onready var sprite = $AnimatedSprite2D
 var state = ALIVE
@@ -44,21 +44,29 @@ func _physics_process(delta: float) -> void:
 	
 
 	if state == ALIVE:
+		
 		velocity = direction * SPEED * mov_effect #MOVIMENTAÇÃO
-		if velocity.length() > 0:
+		
+		
+		if velocity != Vector2(0,0):
+			#Estou andando
 			sprite.play("Running")
 			if velocity.x > 0:
+				
 				sprite.flip_h = false
-			else:
+			#Elif para que quando o jogador apenas ande para cima, ou baixo não faça nenhuma alteração.
+			elif velocity.x < 0: 
+				
 				sprite.flip_h = true
 		else:
+			#Estou parado
 			sprite.play("idle")
-		move_and_slide()
 	else:
+		#Estou morto
 		sprite.play("idle")
-		velocity = Vector2(0,0)
 		get_tree().change_scene_to_file("res://Cenas/MainMenu.tscn")
 		
+	move_and_slide()
 
 #Regras de Colisão para dano aqui!
 func _on_player_area_body_entered(body: Node2D) -> void:

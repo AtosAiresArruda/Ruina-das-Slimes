@@ -19,8 +19,10 @@ func shoot_weapon():
 "
 
 [node name="Weapon" type="Area2D"]
+z_index = 1
 script = SubResource("GDScript_ws6ou")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
