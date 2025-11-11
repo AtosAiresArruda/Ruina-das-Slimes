@@ -4,7 +4,7 @@ extends Camera2D
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
-	zoom = Vector2(3,3)
+	zoom = Vector2(2,2)
 	pass
 	
 	
