@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bfqb6qfs02n08"]
 
-[ext_resource type="Script" uid="uid://b5maxiiqswm6r" path="res://Scripts/EnemyBehavior.gd" id="1_i8v1b"]
+[ext_resource type="Script" uid="uid://b5maxiiqswm6r" path="res://Scripts/Enemies/EnemyBehavior.gd" id="1_i8v1b"]
 [ext_resource type="Texture2D" uid="uid://0eekl8hul327" path="res://assets/spr_slime00.png" id="2_tp8xb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tp8xb"]

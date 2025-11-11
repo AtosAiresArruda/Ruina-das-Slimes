@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://kk7a3m6jaqay"]
 
-[ext_resource type="Script" uid="uid://4nls86n7co3i" path="res://Scripts/camera_2d.gd" id="1_olu0j"]
+[ext_resource type="Script" uid="uid://4nls86n7co3i" path="res://Scripts/Objects/camera_2d.gd" id="1_olu0j"]
 [ext_resource type="Shader" uid="uid://dd3n3kuu74dpf" path="res://Shaders/teste_shader.gdshader" id="3_3231g"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_olu0j"]
