@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
 			#Estou parado
 			sprite.play("idle")
 	else:
-		#Estou morto
+		#Estou diferente de Alive
 		sprite.play("idle")
 		get_tree().change_scene_to_file("res://Cenas/MainMenu.tscn")
 		
