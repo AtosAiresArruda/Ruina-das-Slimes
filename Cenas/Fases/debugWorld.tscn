@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd2uer0x4g7fd"]
+
+[ext_resource type="PackedScene" uid="uid://kk7a3m6jaqay" path="res://Cenas/debug/teste_level.tscn" id="1_10214"]
+[ext_resource type="PackedScene" uid="uid://do37o8l40mept" path="res://Cenas/Weapons/eye_of_die.tscn" id="2_1nox1"]
+[ext_resource type="PackedScene" uid="uid://bfqb6qfs02n08" path="res://Cenas/Enemies/Enemy.tscn" id="3_o5yse"]
+
+[node name="DebugWorld" type="Node2D"]
+
+[node name="test_level" parent="." instance=ExtResource("1_10214")]
+
+[node name="EyeOfDie" parent="." instance=ExtResource("2_1nox1")]
+position = Vector2(302, 163)
+
+[node name="Camera2D" type="Camera2D" parent="EyeOfDie"]
+
+[node name="Enemy" parent="." instance=ExtResource("3_o5yse")]
+position = Vector2(262, 223)

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://do37o8l40mept"]
+
+[ext_resource type="Script" uid="uid://clp4oqf0nu7qn" path="res://Scripts/Wepons/eye_of_die.gd" id="1_nlorn"]
+[ext_resource type="Texture2D" uid="uid://doo8k2kyu30fe" path="res://assets/Wepons/EyeOfDye.png" id="2_uflqj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qjx3j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uflqj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nlorn"]
+radius = 159.0786
+
+[node name="EyeOfDie" type="Node2D"]
+script = ExtResource("1_nlorn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_qjx3j")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_nlorn")
+debug_color = Color(0.9959261, 0, 0.20477068, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
