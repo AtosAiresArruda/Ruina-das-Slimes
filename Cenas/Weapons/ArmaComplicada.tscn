@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://do37o8l40mept"]
 
 [ext_resource type="Script" uid="uid://clp4oqf0nu7qn" path="res://Scripts/Wepons/eye_of_die.gd" id="1_nlorn"]
-[ext_resource type="Texture2D" uid="uid://doo8k2kyu30fe" path="res://assets/Wepons/EyeOfDye.png" id="2_uflqj"]
+[ext_resource type="Texture2D" uid="uid://conbxryshkml6" path="res://assets/Wepons/UmaArmaMuitoComplicada.png" id="2_nlorn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qjx3j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_uflqj")
+"texture": ExtResource("2_nlorn")
 }],
 "loop": true,
 "name": &"default",
@@ -17,11 +17,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_nlorn"]
 radius = 159.0786
 
-[node name="EyeOfDie" type="Node2D"]
+[node name="ArmaComplicada" type="Node2D"]
+z_index = 2
 script = ExtResource("1_nlorn")
+fireTimeReload = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(-15, 0)
 sprite_frames = SubResource("SpriteFrames_qjx3j")
 
 [node name="Area2D" type="Area2D" parent="."]

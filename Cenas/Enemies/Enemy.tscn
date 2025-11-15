@@ -31,6 +31,7 @@ animations = [{
 [node name="Enemy" type="CharacterBody2D" groups=["enemys"]]
 script = ExtResource("1_i8v1b")
 speed = 75.0
+max_life = 25.0
 collision_distance = 15.0
 push_force = null
 damage = null

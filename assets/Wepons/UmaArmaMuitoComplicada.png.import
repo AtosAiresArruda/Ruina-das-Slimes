@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diw4h3mluy267"
-path="res://.godot/imported/spr_bullet.png-1166f1c798ecf79043d4a523ce23a2e4.ctex"
+uid="uid://conbxryshkml6"
+path="res://.godot/imported/UmaArmaMuitoComplicada.png-a3594def01fb0ed210303676a1df8971.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Wepons/spr_bullet.png"
-dest_files=["res://.godot/imported/spr_bullet.png-1166f1c798ecf79043d4a523ce23a2e4.ctex"]
+source_file="res://assets/Wepons/UmaArmaMuitoComplicada.png"
+dest_files=["res://.godot/imported/UmaArmaMuitoComplicada.png-a3594def01fb0ed210303676a1df8971.ctex"]
 
 [params]
 

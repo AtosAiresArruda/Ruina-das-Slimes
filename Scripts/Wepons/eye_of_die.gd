@@ -1,15 +1,16 @@
 extends Node2D
 
-@export var projetilSpeed : float = 20
-@export var fireTime: float = 2.5
-@export var damage:float
-@export var lifetime: float = 4
+@export var projetilSpeed : float = 2
+@export var fireTimeReload : float = 4
+@export var damage:float = 5
+#@export var lifetime: float = 4
 
 var player: Node2D
 var targetList : Array[Node2D] = []
 var target : Node2D = null
 const BULLET = preload("res://Cenas/Weapons/Bullet.tscn")
- 
+var fireTime: float = 1
+
 func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))
 
@@ -30,7 +31,7 @@ func _process(delta: float) -> void:
 		
 		if fireTime <= 0:
 			fire(target)
-			fireTime = 2.5
+			fireTime = fireTimeReload
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -72,8 +73,12 @@ func updateAngle(target : Node2D) -> void:
 
 func fire(target : Node2D) -> void:
 	
+	var direction = target.global_position - self.global_position
+	
 	var projetil = BULLET.instantiate()
 	get_parent().add_child(projetil)
 	projetil.global_position = self.global_position
-	projetil.angle = (target.global_position - self.global_position).angle()
-	projetil.speed = projetilSpeed
+	projetil.angle = direction.angle() #Paça angulo para sprite
+	projetil.direction = direction #Passa Direção
+	projetil.speed = projetilSpeed #Passa Velocidade
+	projetil.damage = damage #Passa dano
