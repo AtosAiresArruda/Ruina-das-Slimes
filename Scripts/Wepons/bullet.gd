@@ -17,8 +17,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	var randi = Vector2(randi_range(1,2),randi_range(1,2)).normalized() #Faz as balas ficarem tontas
+	
 	rotation = angle
-	velocity = direction * speed
+	velocity = direction * speed * randi
 	
 	move_and_slide()
 
