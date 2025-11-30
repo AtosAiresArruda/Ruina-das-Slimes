@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var weapon_manager = $WeaponManager
 @export var steel_ball: PackedScene
 
+
 #States
 enum {
 	ALIVE,
@@ -15,12 +16,16 @@ enum {
 @export var SPEED:float = 125.0
 @export var life : float = 100
 @onready var sprite = $AnimatedSprite2D
+@onready var hp_bar = $ProgressBar
+
 var state = ALIVE
 
 #Atributos
 var mov_effect = 1 #Porcentagem de bonus ou debuff de velocidade
 
 func _ready() -> void:
+	self.hp_bar.max_value = life
+	self.hp_bar.value=life
 	weapon_manager.player = self
 	print("WeaponManager ready!")
 	if weapon_manager.player == null:
@@ -47,7 +52,6 @@ func _physics_process(delta: float) -> void:
 		
 		velocity = direction * SPEED * mov_effect #MOVIMENTAÇÃO
 		
-		
 		if velocity != Vector2(0,0):
 			#Estou andando
 			sprite.play("Running")
@@ -73,8 +77,12 @@ func _on_player_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemys") and state == ALIVE:
 		print(life)
 		flash_white()
+		hp_bar.value -= body.get_damage()
 		life -= body.get_damage()
+		
 		
 		if life <= 0:
 			life =0
 			state = DEAD
+		
+		flash_white()

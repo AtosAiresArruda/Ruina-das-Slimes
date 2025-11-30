@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2aldla6h65yh"]
+[gd_scene load_steps=11 format=3 uid="uid://b2aldla6h65yh"]
 
 [ext_resource type="Script" uid="uid://draupikafg6fn" path="res://Scripts/Player/Jogador.gd" id="1_twm4h"]
 [ext_resource type="Texture2D" uid="uid://b3knkhe1815cs" path="res://assets/spr_personagemTeste-Sheet.png" id="2_4ee2j"]
 [ext_resource type="Texture2D" uid="uid://e6s0khjnup7x" path="res://assets/spr_personagemTeste.png" id="3_i8uuj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ee2j"]
-size = Vector2(12, 28)
+size = Vector2(12, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i8uuj"]
 atlas = ExtResource("2_4ee2j")
@@ -37,8 +37,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd1yt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6k61"]
+bg_color = Color(0.9494094, 0, 0.22253603, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8uuj"]
-size = Vector2(22, 30)
+size = Vector2(14, 16)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 2
@@ -46,7 +51,6 @@ script = ExtResource("1_twm4h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 2
-position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_4ee2j")
 disabled = true
 
@@ -57,12 +61,24 @@ sprite_frames = SubResource("SpriteFrames_i8uuj")
 animation = &"Running"
 autoplay = "idle"
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -14.0
+offset_top = -10.0
+offset_right = -10.0
+offset_bottom = 18.0
+rotation = -1.5707964
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_yd1yt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_y6k61")
+step = 0.1
+fill_mode = 2
+show_percentage = false
+
 [node name="PlayerArea" type="Area2D" parent="."]
 z_index = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
 z_index = 2
-position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_i8uuj")
 
 [connection signal="body_entered" from="PlayerArea" to="." method="_on_player_area_body_entered"]
