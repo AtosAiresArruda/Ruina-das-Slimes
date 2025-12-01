@@ -5,7 +5,9 @@ extends CharacterBody2D
 @export var collision_distance: float = 16.0
 @export var push_force: float = 0.2
 @export var damage: float = 2.5
+var xp_gem = preload("res://Cenas/Player/EXPCrystal.tscn")
 @onready var sprite = $AnimatedSprite2D
+
 
 var life: float
 var player: CharacterBody2D
@@ -50,9 +52,21 @@ func take_damage(amount: float = 1.0) -> void:
 	if life <= 0:
 		die()
 
+func spawn_xp() -> void:
+	if xp_gem == null:
+		push_error("xp_gem is NULL! Assign it in the Inspector.")
+		return
+	var xp_instance = xp_gem.instantiate()
+	if xp_instance == null:
+		push_error("xp_gem failed to instantiate!")
+		return
+
+	xp_instance.global_position = global_position
+	get_parent().add_child(xp_instance)
 
 func die() -> void:
-	queue_free()
+	call_deferred("spawn_xp")
+	call_deferred("queue_free")
 
 func get_damage() -> float:
 	return damage

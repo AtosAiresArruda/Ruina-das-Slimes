@@ -24,6 +24,7 @@ window/size/mode=2
 [global_group]
 
 enemys="Grupo referente aos inimigos"
+Player=""
 
 [input]
 

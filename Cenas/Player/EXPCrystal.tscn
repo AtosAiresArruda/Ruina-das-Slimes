@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://u2sw84wbbq0d"]
+
+[ext_resource type="Script" uid="uid://b7b0di5lw3b6e" path="res://Scripts/Player/Xp.gd" id="1_ceemh"]
+[ext_resource type="Texture2D" uid="uid://cgg1dplnov6qm" path="res://assets/Pixel purple gem.png" id="1_oxpod"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7s3r"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceemh"]
+atlas = ExtResource("1_oxpod")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxom0"]
+atlas = ExtResource("1_oxpod")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h17mw"]
+atlas = ExtResource("1_oxpod")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nde3"]
+atlas = ExtResource("1_oxpod")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac8iy"]
+atlas = ExtResource("1_oxpod")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbybo"]
+atlas = ExtResource("1_oxpod")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru450"]
+atlas = ExtResource("1_oxpod")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6dx0g"]
+animations = [{
+"frames": [{
+"duration": 30.0,
+"texture": SubResource("AtlasTexture_ceemh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxom0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h17mw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nde3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac8iy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbybo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru450")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceemh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="ExpCrystal" type="Area2D"]
+script = ExtResource("1_ceemh")
+speed = 300.0
+radius = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h7s3r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 20
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_6dx0g")
+frame_progress = 0.47965056
+
+[connection signal="area_entered" from="." to="." method="_on_player_area_entered"]

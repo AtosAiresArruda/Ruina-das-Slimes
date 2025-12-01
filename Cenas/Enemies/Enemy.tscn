@@ -32,8 +32,6 @@ animations = [{
 script = ExtResource("1_i8v1b")
 speed = 75.0
 collision_distance = 15.0
-push_force = null
-damage = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
