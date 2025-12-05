@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cikvxtl8ks05t"
-path="res://.godot/imported/ChatGPT Image Nov 8, 2025, 03_45_57 AM.png-7df4b0bf244a2f89a5554b9dbad96bca.ctex"
+uid="uid://doo8k2kyu30fe"
+path="res://.godot/imported/EyeOfDye.png-f3a24ea575c0b79a1ba36699cc5b6b6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ChatGPT Image Nov 8, 2025, 03_45_57 AM.png"
-dest_files=["res://.godot/imported/ChatGPT Image Nov 8, 2025, 03_45_57 AM.png-7df4b0bf244a2f89a5554b9dbad96bca.ctex"]
+source_file="res://assets/Wepons/EyeOfDye.png"
+dest_files=["res://.godot/imported/EyeOfDye.png-f3a24ea575c0b79a1ba36699cc5b6b6d.ctex"]
 
 [params]
 
