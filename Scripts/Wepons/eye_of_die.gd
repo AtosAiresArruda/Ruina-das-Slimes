@@ -1,28 +1,25 @@
 extends Node2D
 
+@export var player: Node2D
 @export var projetilSpeed : float = 2
 @export var fireTimeReload : float = 4
 @export var damage:float = 5
-#@export var lifetime: float = 4
 
-var player: Node2D
 var targetList : Array[Node2D] = []
 var target : Node2D = null
 const BULLET = preload("res://Cenas/Weapons/Bullet.tscn")
-var fireTime: float = 1
+var fireTime: float = 4
 
 func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))
 
-	#await get_tree().create_timer(lifetime).timeout
-	#queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#if player == null:
-	#	return
 	
 	fireTime -= delta
+	
+	global_position = player.global_position + Vector2(0,-10)
 	
 	target = selectTarget() #Encontra inimigo mais proximo
 	updateAngle(target)

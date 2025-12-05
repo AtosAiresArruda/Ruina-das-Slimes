@@ -7,11 +7,14 @@ var direction = Vector2(0,0)
 var damage = 0
 var countEnemy = 0 #Contador de acertos
 var maxCountEnemy = 3 #Quanto inimigos pode acertar até desaparecer
+@export var lifetime: float = 5
 #var sprite : AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	
+	await get_tree().create_timer(lifetime).timeout
+	queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

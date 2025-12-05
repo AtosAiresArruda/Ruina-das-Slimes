@@ -20,7 +20,7 @@ radius = 159.0786
 [node name="ArmaComplicada" type="Node2D"]
 z_index = 2
 script = ExtResource("1_nlorn")
-fireTimeReload = 1.0
+fireTimeReload = 3.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-15, 0)
