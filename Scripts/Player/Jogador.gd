@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 #Weapons
 @onready var weapon_manager = $WeaponManager
-@export var steel_ball: PackedScene
+@export var steel_ball = Area2D
 
 
 #States
@@ -22,13 +22,14 @@ enum {
 @onready var hp_bar = $LifeBar
 @onready var total_xp = 0
 @onready var xp_bar = $PlayerResources/Control/XPBar
-
+var orb_weapon_scene = preload("res://Cenas/Weapons/Steel Ball/Steel Ball.tscn")
 var state = ALIVE
 
 #Atributos
 var mov_effect = 1 #Porcentagem de bonus ou debuff de velocidade
 
 func _ready() -> void:
+	steel_ball = weapon_manager.add_weapon(orb_weapon_scene)
 	self.xp_bar.value = 0.00
 	self.xp_bar.max_value = next_level
 	self.hp_bar.max_value = life
@@ -38,7 +39,6 @@ func _ready() -> void:
 	if weapon_manager.player == null:
 		print("⚠️ No player set in WeaponManager")
 		return
-	weapon_manager.add_weapon(preload("res://Cenas/Weapons/Steel Ball.tscn"), 5)
 
 
 func flash_white(duration := 0.1):
@@ -99,6 +99,8 @@ func getExp(xp_value: float)->void:
 func levelup() -> void:
 	next_level = (next_level*1.5); #curva de xp
 	level+=1
+	if steel_ball:
+		steel_ball.projectile_count += 1
 	print("LEVEL UP! - Level: ",level)
 	print("Next Level:", next_level)
 	print("Total Experience:", total_xp)

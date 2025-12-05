@@ -1,32 +1,38 @@
 extends Node
 
-# Dicionario de Armas
-# { "scene": PackedScene, "cooldown": float, "last_fire_time": float }
 var player: Node2D
 var weapons: Array = []
 
-func add_weapon(scene: PackedScene, cooldown: float):
-	weapons.append({
-		"scene": scene, # Passar caminho da cena
-		"cooldown": cooldown,  #usar valores de 0 - 1
-		"last_fire_time": 0.0
-	})
+func _ready():
+	player = get_parent()
 
-func _process(delta):
-	for weapon_data in weapons:
-		var time_now = Time.get_ticks_msec() / 1000.0
-		if time_now - weapon_data["last_fire_time"] >= weapon_data["cooldown"]:
-			fire_weapon(weapon_data)
-			weapon_data["last_fire_time"] = time_now
-			
+func add_weapon(weapon_scene: PackedScene):
+	var weapon = weapon_scene.instantiate()
 
-func fire_weapon(weapon_data):
-	var player = get_parent() 
-	if player == null:
-		return
-		
-	var weapon_instance = weapon_data["scene"].instantiate()
-	weapon_instance.global_position = player.global_position
-	weapon_instance.player = player
-	get_parent().add_child(weapon_instance)
-	print()
+	#1
+	add_child(weapon)
+	# 2
+	weapon.player = player
+	# 3
+	if weapon.has_method("setup"):
+		weapon.setup(player)
+	# 4.
+	weapons.append(weapon)
+
+	return weapon
+
+
+# Upgrade any attribute on ANY weapon
+func upgrade_weapon(weapon_type: String, attribute: String, value):
+	for weapon in weapons:
+		if weapon.has_method("get_weapon_type") and weapon.get_weapon_type() == weapon_type:
+			if weapon.has_variable(attribute):
+				weapon.set(attribute, value)
+
+				if attribute == "projectile_count":
+					if weapon.has_method("_rebuild_orbs"):
+						weapon._rebuild_orbs()
+
+				return weapon
+
+	return null
