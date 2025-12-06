@@ -4,7 +4,7 @@ extends CharacterBody2D
 #Weapons
 @onready var weapon_manager = $WeaponManager
 @export var steel_ball = Area2D
-
+@export var arma_complicada = Area2D
 
 #States
 enum {
@@ -23,6 +23,9 @@ enum {
 @onready var total_xp = 0
 @onready var xp_bar = $PlayerResources/Control/XPBar
 var orb_weapon_scene = preload("res://Cenas/Weapons/Steel Ball/Steel Ball.tscn")
+var armaComplicada = preload("res://Cenas/Weapons/ArmaComplicada.tscn")
+
+
 var state = ALIVE
 
 #Atributos
@@ -30,6 +33,7 @@ var mov_effect = 1 #Porcentagem de bonus ou debuff de velocidade
 
 func _ready() -> void:
 	steel_ball = weapon_manager.add_weapon(orb_weapon_scene)
+	arma_complicada = weapon_manager.add_weapon(armaComplicada)
 	self.xp_bar.value = 0.00
 	self.xp_bar.max_value = next_level
 	self.hp_bar.max_value = life
@@ -100,7 +104,16 @@ func levelup() -> void:
 	next_level = (next_level*1.5); #curva de xp
 	level+=1
 	if steel_ball:
-		steel_ball.projectile_count += 1
+		
+		if(steel_ball.projectile_count < 6):
+			steel_ball.projectile_count += 1
+	
+	if arma_complicada:
+		if (arma_complicada.fireTimeReload > 0.2):
+			arma_complicada.fireTimeReload -= 0.2
+		else:
+			arma_complicada.fireTimeReload = 0.2
+			arma_complicada.
 	print("LEVEL UP! - Level: ",level)
 	print("Next Level:", next_level)
 	print("Total Experience:", total_xp)
